@@ -4,6 +4,9 @@
     REM You can also use %TEMP% but it is cleared on site restart. Tools is persistent.
     SET PATH=%PATH%;D:\home\site\deployments\tools\r\ruby-2.3.1-i386-mingw32\bin
 
+    ruby win_fetch_cacerts.rb
+    set SSL_CERT_FILE=C:\RailsInstaller\cacert.pem
+
     REM I am in the repository folder
     pushd D:\home\site\deployments
     if not exist tools md tools
@@ -38,9 +41,6 @@
 
     REM Setup DevKit
     ruby DevKit\dk.rb install
-
-    ruby win_fetch_cacerts.rb
-    set SSL_CERT_FILE=C:\RailsInstaller\cacert.pem
 
     REM Update Gem223 until someone fixes the Ruby Windows installer https://github.com/oneclick/rubyinstaller/issues/261
     curl -L -o update.gem https://github.com/rubygems/rubygems/releases/download/v2.3.1/rubygems-update-2.3.1.gem
