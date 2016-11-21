@@ -4,8 +4,7 @@
     REM You can also use %TEMP% but it is cleared on site restart. Tools is persistent.
     SET PATH=%PATH%;D:\home\site\deployments\tools\r\ruby-2.3.1-i386-mingw32\bin
 
-    ruby win_fetch_cacerts.rb
-    set SSL_CERT_FILE=C:\RailsInstaller\cacert.pem
+    set SSL_CERT_FILE=cacert.pem
 
     REM I am in the repository folder
     pushd D:\home\site\deployments
