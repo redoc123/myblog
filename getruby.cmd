@@ -39,6 +39,9 @@
     REM Setup DevKit
     ruby DevKit\dk.rb install
 
+    ruby win_fetch_cacerts.rb
+    set SSL_CERT_FILE=C:\RailsInstaller\cacert.pem
+
     REM Update Gem223 until someone fixes the Ruby Windows installer https://github.com/oneclick/rubyinstaller/issues/261
     curl -L -o update.gem https://github.com/rubygems/rubygems/releases/download/v2.3.1/rubygems-update-2.3.1.gem
     call gem install --local update.gem
